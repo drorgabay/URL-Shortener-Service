@@ -18,7 +18,7 @@ Why These Choices?
 Node.js & Express: Ideal for building scalable and fast network applications, perfect for a service prioritizing high throughput and low latency.
 Redis: Provides extremely fast read and write operations, enhancing the application's response time.
 MongoDB: Initially, the primary choice for the remote database was a key-value store known for its fast access and maintenance capabilities, making DynamoDB an ideal candidate. DynamoDB, offered by AWS, is renowned for its high performance, scalability, and seamless integration in cloud environments.
-However, since DynamoDB cannot be run locally and this application is not in a production environment or using a micro-services architecture, MongoDB was chosen as an alternative. MongoDB, a NoSQL database, is well-suited for this application for several reasons:
+However, since DynamoDB cannot be run locally and this application is not in a production environment or using a micro-services architecture, MongoDB was chosen as an alternative. MongoDB, a NoSQL database, is well-suited for this application for several reasons like local development, data persistence, scalability and more.
 shortid: Generates short, unique URLs efficiently, which is key for a URL shortening service.
 
 Installation
