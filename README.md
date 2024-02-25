@@ -56,19 +56,19 @@ This document outlines the API endpoints for the URL shortening service. The ser
 For local development, the base URL is: "http://localhost:3000"
 
 ### Endpoints
-* **Create Short URL**
-** **URL:** /shorturls
-** **Method:** POST
-** **Description:** This endpoint is used to create a new short URL.
-** **Request Body:**
+#### Create Short URL
+* **URL:** /shorturls
+* **Method:** POST
+* **Description:** This endpoint is used to create a new short URL.
+* **Request Body:**
 url (String, Required): The original URL to be shortened.
-** **Success Response:**
+* **Success Response:**
 Code: 200 OK
 Content: {
   "shortUrl": "http://localhost:3000/shortUrlId"
 }
 
-** **Error Response:**
+* **Error Response:**
 Code: 400 Bad Request
 Content: {  "error": "URL is required"  }
 
@@ -82,16 +82,16 @@ OR
 Code: 500 Internal Server Error
 Content: { "error": "Internal Server Error" }
 
-* **Redirect to Original URL**
-**URL:** /:shortUrl
-**Method:** GET
-**Description:** Accessing this endpoint redirects the user to the original URL corresponding to the provided short URL.
-**URL Params:** shortUrl (String, Required): The unique identifier for the shortened URL.
-**Success Response:**
+#### Redirect to Original URL
+* **URL:** /:shortUrl
+* **Method:** GET
+* **Description:** Accessing this endpoint redirects the user to the original URL corresponding to the provided short URL.
+* **URL Params:** shortUrl (String, Required): The unique identifier for the shortened URL.
+* **Success Response:**
 Code: 302 Found
 Content: Redirects to the original URL.
 
-**Error Response:**
+* **Error Response:**
 Code: 404 Not Found
 Content: "URL not found"
 
