@@ -27,7 +27,7 @@ Before running the application, ensure you have the following installed:
 * **Node.js:** Download and install Node.js from here.
 * **MongoDB Community Server:** Download and install MongoDB from MongoDB Community Server and run mongod.exe to run MongoDB locally.
 * **Redis:** For Windows users, download redis-x64-3.2.100.zip from Redis Windows 3.2.100 and run redis-server.exe to run Redis locally.
-* 
+  
 ### Setting Up the Application
 Follow these steps to set up and run the application:
 
@@ -40,54 +40,51 @@ Follow these steps to set up and run the application:
 ## Local Development and Testing
 In this local development setup, running the application includes starting both the Redis and MongoDB servers. You can perform operations as usual with the application under this setup.
 
-Testing Persistence and Cache Reconnection
+### Testing Persistence and Cache Reconnection
 To test the application's persistence and cache reconnection capabilities:
 
-Start the Application with Redis and MongoDB Running: This is the normal operation mode.
-Stop the Redis Server: This simulates a cache failure. The application will log to the console that the Redis client is disconnected but will continue to run, using MongoDB for data retrieval.
-Restart the Redis Server: The application will automatically reconnect to Redis, demonstrating the cache reconnection capability.
+* **Start the Application with Redis and MongoDB Running:** This is the normal operation mode.
+* **Stop the Redis Server:** This simulates a cache failure. The application will log to the console that the Redis client is disconnected but will continue to run- please be aware that eventhough the service still run, i
+* **Restart the Redis Server:** The application will automatically reconnect to Redis, demonstrating the cache reconnection capability.
 This process helps demonstrate how the application manages unexpected Redis downtimes and ensures data persistence through MongoDB. In a production environment, a different process would be used to monitor the connection status of each database and manage recovery, without a direct dependency on local servers.
 
-API Documentation for Node.js URL Shortener Service
-Overview
+## API Documentation for Node.js URL Shortener Service
+### Overview
 This document outlines the API endpoints for the URL shortening service. The service provides endpoints to create shortened URLs and to redirect to the original URLs using their shortened versions.
 
-Base URL
+### Base URL
 For local development, the base URL is: http://localhost:3000
 
-Endpoints
-1. Create Short URL
-URL: /shorturls
-Method: POST
-Description: This endpoint is used to create a new short URL.
-Request Body:
+### Endpoints
+* **Create Short URL**
+**URL:** /shorturls
+**Method:** POST
+**Description:** This endpoint is used to create a new short URL.
+**Request Body:**
 url (String, Required): The original URL to be shortened.
-Success Response:
+**Success Response:**
 Code: 200 OK
 Content: {
   "shortUrl": "http://localhost:3000/shortUrlId"
 }
 
-Error Response:
+**Error Response:**
 Code: 400 Bad Request
 Content:
 json
-Copy code
 { "error": "URL is required" }
 OR
 Code: 400 Bad Request
 Content:
 json
-Copy code
 { "error": "Invalid URL" }
 OR
 Code: 500 Internal Server Error
 Content:
 json
-Copy code
 { "error": "Internal Server Error" }
 
-2. Redirect to Original URL
+* **Redirect to Original URL**
 URL: /:shortUrl
 Method: GET
 Description: Accessing this endpoint redirects the user to the original URL corresponding to the provided short URL.
