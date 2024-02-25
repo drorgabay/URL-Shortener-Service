@@ -32,10 +32,10 @@ Before running the application, ensure you have the following installed for Wind
 Follow these steps to set up and run the application:
 
 * **Clone the Repository:** Clone or download the application code to your local machine.
-* **Install Dependencies:** Navigate to the application directory in the terminal and run npm install to install the required Node.js modules listed in package.json.
-* **Start MongoDB:** Run the MongoDB server on your machine.
-* **Start Redis:** Execute redis-server.exe to start the Redis server.
-* **Run the Application:** Execute node app.js (or your main application file) to start the URL shortening service.
+* **Install Dependencies:** Navigate to the application directory in the terminal and run **npm install** to install the required Node.js modules listed in package.json.
+* **Start MongoDB:** Execute mongod.exe to start the MongoDB server on your machine.
+* **Start Redis:** Execute redis-server.exe to start the Redis server on your machine.
+* **Run the Application:** Execute **node app.js** (or your main application file) to start the URL shortening service.
 
 ## Local Development and Testing
 In this local development setup, running the application includes starting both the Redis and MongoDB servers. You can perform operations as usual with the application under this setup.
