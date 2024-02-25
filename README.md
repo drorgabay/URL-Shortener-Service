@@ -20,6 +20,22 @@ Redis: Provides extremely fast read and write operations, enhancing the applicat
 MongoDB: Offers flexibility and scalability, with the added advantage of being more suitable for local development compared to DynamoDB.
 shortid: Generates short, unique URLs efficiently, which is key for a URL shortening service.
 
+Installation
+Prerequisites
+Before running the application, ensure you have the following installed:
+
+Node.js: Download and install Node.js from here.
+MongoDB Community Server: Download and install MongoDB from MongoDB Community Server and run mongod.exe to run MongoDB locally.
+Redis: For Windows users, download redis-x64-3.2.100.zip from Redis Windows 3.2.100 and run redis-server.exe to run Redis locally.
+Setting Up the Application
+Follow these steps to set up and run the application:
+
+Clone the Repository: Clone or download the application code to your local machine.
+Install Dependencies: Navigate to the application directory in the terminal and run npm install to install the required Node.js modules listed in package.json.
+Start MongoDB: Run the MongoDB server on your machine.
+Start Redis: Execute redis-server.exe to start the Redis server.
+Run the Application: Execute node app.js (or your main application file) to start the URL shortening service.
+
 Local Development and Testing
 In this local development setup, running the application includes starting both the Redis and MongoDB servers. You can perform operations as usual with the application under this setup.
 
