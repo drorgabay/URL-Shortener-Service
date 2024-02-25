@@ -79,7 +79,7 @@ url (String, Required): The original URL to be shortened.
   * **Code:** 302 Found
   * **Content:** Redirects to the original URL.
 
-* **Error Response:**
+* **Error Response Options:**
   * **Code:** 404 Not Found, 500 Internal Server Error
   * **Content:** "URL not found", "Internal Server Error"
 
