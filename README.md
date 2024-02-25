@@ -57,18 +57,18 @@ For local development, the base URL is: "http://localhost:3000"
 
 ### Endpoints
 * **Create Short URL**
-**URL:** /shorturls
-**Method:** POST
-**Description:** This endpoint is used to create a new short URL.
-**Request Body:**
+** **URL:** /shorturls
+** **Method:** POST
+** **Description:** This endpoint is used to create a new short URL.
+** **Request Body:**
 url (String, Required): The original URL to be shortened.
-**Success Response:**
+** **Success Response:**
 Code: 200 OK
 Content: {
   "shortUrl": "http://localhost:3000/shortUrlId"
 }
 
-**Error Response:**
+** **Error Response:**
 Code: 400 Bad Request
 Content: {  "error": "URL is required"  }
 
