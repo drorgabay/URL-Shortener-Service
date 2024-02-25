@@ -1,5 +1,5 @@
 # Introduction
-This Node.js application provides a URL shortening service, similar to bit.ly, with a focus on high throughput and low latency. The service is built using Node.js and Express, leveraging MongoDB as the primary database and Redis for caching, ensuring quick response times even under heavy load.
+This Node.js application provides a URL shortening service with a focus on high throughput and low latency. The service is built using Node.js and Express, leveraging MongoDB as the primary database and Redis for caching, ensuring quick response times even under heavy load.
 
 ## Features
 * **URL Shortening:** Converts long URLs into short, manageable links.
