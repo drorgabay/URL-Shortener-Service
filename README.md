@@ -82,4 +82,7 @@ url (String, Required): The original URL to be shortened.
 * **Error Response Options:**
   * **Code:** 404 Not Found, 500 Internal Server Error
   * **Content:** "URL not found", "Internal Server Error"
+ 
+  * ![image](https://github.com/drorgabay/URL-Shortener-Service/assets/81250590/8e1f3087-d14e-4c7b-9c3c-301c572aed45)
+
 
