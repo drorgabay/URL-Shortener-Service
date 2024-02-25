@@ -16,7 +16,9 @@ async function handleShortUrlCreation(req, res) {
         const shortUrl = shortId.generate();
         const urls = getUrlCollection();
         await urls.insertOne({ "_id": shortUrl, "url": url, "createdAt": new Date() });
-        await redisClient.set(shortUrl, url, 'EX', REDIS_EXPIRY);
+        try {
+            await redisClient.set(shortUrl, url, 'EX', REDIS_EXPIRY);
+        } catch (error) {}
         res.json({ shortUrl: `http://localhost:3000/${shortUrl}` });
     } catch (error) {
         console.error(error);
@@ -27,14 +29,20 @@ async function handleShortUrlCreation(req, res) {
 async function handleUrlRedirection(req, res) {
     try {
         const { shortUrl } = req.params;
-        originUrl = await redisClient.get(shortUrl);
+        try {
+            originUrl = await redisClient.get(shortUrl);
+        } catch (error) {
+            originUrl = null;
+        }
         if (!originUrl) {
             const urls = getUrlCollection();
             const document = await urls.findOne({ "_id": shortUrl });
             if (document) {
                 console.log('Found in remote DB');
                 originUrl = document["url"];
-                await redisClient.set(shortUrl, originUrl, 'EX', REDIS_EXPIRY);
+                try {
+                    await redisClient.set(shortUrl, originUrl, 'EX', REDIS_EXPIRY);
+                } catch (error) {}
             } else {
                 return res.status(404).send('URL not found');
             }
