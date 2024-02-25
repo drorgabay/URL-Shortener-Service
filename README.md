@@ -44,8 +44,8 @@ In this local development setup, running the application includes starting both 
 To test the application's persistence and cache reconnection capabilities:
 
 * **Start the Application with Redis and MongoDB Running:** This is the normal operation mode.
-* **Stop the Redis Server:** This simulates a cache failure. The application will log to the console that the Redis client is disconnected but will continue to run- please be aware that eventhough the service still run, i
-* **Restart the Redis Server:** The application will automatically reconnect to Redis, demonstrating the cache reconnection capability.
+* **Stop the Redis Server:** This simulates a cache failure. The application will continue to run, but it's important to note that since this application depends on both Redis and MongoDB and is running in a local development environment, to test data persistence, it's crucial to restart the Redis server after stopping it.
+* **Restart the Redis Server:** Restart the Redis server. The application should automatically re-establish the connection to the Redis server and resume its full functionality, and you can see that after the reconncetion, the data was found in the remoteDB.
 This process helps demonstrate how the application manages unexpected Redis downtimes and ensures data persistence through MongoDB. In a production environment, a different process would be used to monitor the connection status of each database and manage recovery, without a direct dependency on local servers.
 
 ## API Documentation for Node.js URL Shortener Service
@@ -53,7 +53,7 @@ This process helps demonstrate how the application manages unexpected Redis down
 This document outlines the API endpoints for the URL shortening service. The service provides endpoints to create shortened URLs and to redirect to the original URLs using their shortened versions.
 
 ### Base URL
-For local development, the base URL is: http://localhost:3000
+For local development, the base URL is: "http://localhost:3000"
 
 ### Endpoints
 * **Create Short URL**
@@ -70,38 +70,31 @@ Content: {
 
 **Error Response:**
 Code: 400 Bad Request
-Content:
-json
-{ "error": "URL is required" }
+Content: {  "error": "URL is required"  }
+
 OR
+
 Code: 400 Bad Request
-Content:
-json
-{ "error": "Invalid URL" }
+Content: { "error": "Invalid URL" }
+
 OR
+
 Code: 500 Internal Server Error
-Content:
-json
-{ "error": "Internal Server Error" }
+Content: { "error": "Internal Server Error" }
 
 * **Redirect to Original URL**
-URL: /:shortUrl
-Method: GET
-Description: Accessing this endpoint redirects the user to the original URL corresponding to the provided short URL.
-URL Params:
-shortUrl (String, Required): The unique identifier for the shortened URL.
-Success Response:
+**URL:** /:shortUrl
+**Method:** GET
+**Description:** Accessing this endpoint redirects the user to the original URL corresponding to the provided short URL.
+**URL Params:** shortUrl (String, Required): The unique identifier for the shortened URL.
+**Success Response:**
 Code: 302 Found
 Content: Redirects to the original URL.
-Error Response:
+
+**Error Response:**
 Code: 404 Not Found
-Content:
-json
-Copy code
-"URL not found"
+Content: "URL not found"
+
 OR
 Code: 500 Internal Server Error
-Content:
-json
-Copy code
-"Internal Server Error"
+Content: "Internal Server Error"
