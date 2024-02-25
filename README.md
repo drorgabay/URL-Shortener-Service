@@ -63,24 +63,12 @@ For local development, the base URL is: "http://localhost:3000"
 * **Request Body:**
 url (String, Required): The original URL to be shortened.
 * **Success Response:**
-Code: 200 OK
-Content: {
-  "shortUrl": "http://localhost:3000/shortUrlId"
-}
+  * **Code:** 200 OK
+  * **Content:** { "shortUrl": "http://localhost:3000/shortUrlId" }
 
-* **Error Response:**
-Code: 400 Bad Request
-Content: {  "error": "URL is required"  }
-
-OR
-
-Code: 400 Bad Request
-Content: { "error": "Invalid URL" }
-
-OR
-
-Code: 500 Internal Server Error
-Content: { "error": "Internal Server Error" }
+* **Error Response Options:**
+  * **Code:** 400 Bad Request, 500 Internal Server Error
+  * **Content:** {  "error": "URL is required"  }, { "error": "Invalid URL" } , { "error": "Internal Server Error" }
 
 #### Redirect to Original URL
 * **URL:** /:shortUrl
@@ -88,13 +76,10 @@ Content: { "error": "Internal Server Error" }
 * **Description:** Accessing this endpoint redirects the user to the original URL corresponding to the provided short URL.
 * **URL Params:** shortUrl (String, Required): The unique identifier for the shortened URL.
 * **Success Response:**
-Code: 302 Found
-Content: Redirects to the original URL.
+  * **Code:** 302 Found
+  * **Content:** Redirects to the original URL.
 
 * **Error Response:**
-Code: 404 Not Found
-Content: "URL not found"
+  * **Code:** 404 Not Found, 500 Internal Server Error
+  * **Content:** "URL not found", "Internal Server Error"
 
-OR
-Code: 500 Internal Server Error
-Content: "Internal Server Error"
