@@ -1,12 +1,11 @@
-Introduction
+# Introduction
 This Node.js application provides a URL shortening service, similar to bit.ly, with a focus on high throughput and low latency. The service is built using Node.js and Express, leveraging MongoDB as the primary database and Redis for caching, ensuring quick response times even under heavy load.
 
-Features
-URL Shortening: Converts long URLs into short, manageable links.
-High Performance: Utilizes Redis for caching and MongoDB for persistent storage, delivering fast response times.
-Fault Tolerance: Handles cache unavailability by falling back to MongoDB, ensuring uninterrupted service.
-Persistence: MongoDB is used as a primary database, ensuring data is not lost if Redis cache fails.
-TTL Support: MongoDB is configured with TTL (Time To Live) indexes, automatically cleaning up expired data.
+## Features
+* URL Shortening: Converts long URLs into short, manageable links.
+* High Performance: Utilizes Redis for caching and MongoDB for persistent storage, delivering fast response times.
+* Persistence: MongoDB is used as a primary database, ensuring data is not lost if Redis cache fails.
+* TTL Support: MongoDB is configured with TTL (Time To Live) indexes, automatically cleaning up expired data.
 
 Technology Stack
 Node.js & Express: For building the server and handling HTTP requests.
