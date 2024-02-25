@@ -24,8 +24,8 @@ However, since DynamoDB cannot be run locally and this application is not in a p
 ### Prerequisites
 Before running the application, ensure you have the following installed:
 
-* **Node.js:** Download and install Node.js from here.
-* **MongoDB Community Server:** Download and install MongoDB from MongoDB Community Server and run mongod.exe to run MongoDB locally.
+* **Node.js:** Download and install Node.js from [here](https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100).
+* **MongoDB Community Server:** Download and install MongoDB Community Server from [here](https://www.mongodb.com/try/download/community) and run mongod.exe to run MongoDB locally.
 * **Redis:** For Windows users, download redis-x64-3.2.100.zip from Redis Windows 3.2.100 and run redis-server.exe to run Redis locally.
   
 ### Setting Up the Application
